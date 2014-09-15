@@ -1,4 +1,4 @@
-import org.json.JSONObject;
+// import org.json.JSONObject;
 
 public class Skillset implements Savable {
 
@@ -6,6 +6,13 @@ public class Skillset implements Savable {
 	private int navigation;
 	private int engineering;
 	private int charisma;
+
+	public Skillset() {
+		this.piloting = 0;
+		this.navigation = 0;
+		this.engineering = 0;
+		this.charisma = 0;
+	}
 
 	public int getPiloting() {
 		return piloting;
