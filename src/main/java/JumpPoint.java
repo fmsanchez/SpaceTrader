@@ -2,11 +2,11 @@ import java.awt.geom.Point2D;
 
 public class JumpPoint {
 
-	private System targetSys;
+	private StarSystem targetSys;
 	private Position targetPos;
 	private Position pos;
 
-	public JumpPoint(Position pos, System targetSys,
+	public JumpPoint(Position pos, StarSystem targetSys,
 					 Position targetPos) {
 		pos = this.pos;
 		targetSys = this.targetSys;
@@ -17,7 +17,7 @@ public class JumpPoint {
 		return pos;
 	}
 
-	public System getTargetSystem() {
+	public StarSystem getTargetSystem() {
 		return targetSys;
 	}
 

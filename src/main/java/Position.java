@@ -17,11 +17,11 @@ public class Position {
 	}
 
 	public double angleTo(Position that) {
-		return Math.atan2(this.x - that.x, this.y - that.y);
+		return Math.atan2(this.y - that.y, this.x - that.x);
 	}
 
 	public double toAngle() {
-		return Math.atan2(this.x, this.y);
+		return Math.atan2(this.y, this.x);
 	}
 
 
@@ -47,13 +47,13 @@ public class Position {
 		return s;
 	}
 
-/**
-Reflects the vector about the input vector
-@param n the vector perpendicular to the surface of the reflecting object
-*/
-public Position reflectOff(Position n){
-	double len2 = n.x * n.x + n.y * n.y;
-	double dot = x * n.x + y * n.y;
-	return new Position(x - 2*dot*n.x / len2, y - 2*dot*n.y / len2);
-}
+	/**
+	 * Reflects the vector about the input vector
+	 * @param n the vector perpendicular to the surface of the reflecting object
+	 */
+	public Position reflectOff(Position n){
+		double len2 = n.x * n.x + n.y * n.y;
+		double dot = x * n.x + y * n.y;
+		return new Position(x - 2*dot*n.x / len2, y - 2*dot*n.y / len2);
+	}
 }
