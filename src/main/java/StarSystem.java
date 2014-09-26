@@ -3,13 +3,22 @@ import java.util.ArrayList;
 
 public class StarSystem {
 
+	private String name;
 	private Position pos;
+	private StarType starType;
 	private List<Planet> planets;
 	private List<JumpPoint> jumpPoints;
 
-	public StarSystem(Position pos) {
+	public Position getPosition() {
+		return pos;
+	}
+
+	public StarSystem(String name, Position pos, StarType starType) {
+		this.name = name;
 		this.pos = pos;
 		this.planets = new ArrayList<Planet>();
+		this.jumpPoints = new ArrayList<JumpPoint>();
+		this.starType = starType;
 	}
 
 	public void addPlanet(Planet planet) {

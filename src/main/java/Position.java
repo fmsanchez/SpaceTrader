@@ -1,6 +1,7 @@
 public class Position {
 	public double x;
 	public double y;
+	public static final Position origin = new Position(0,0);
 
 	public Position(double x, double y) {
 		this.x = x;
@@ -55,5 +56,15 @@ public class Position {
 		double len2 = n.x * n.x + n.y * n.y;
 		double dot = x * n.x + y * n.y;
 		return new Position(x - 2*dot*n.x / len2, y - 2*dot*n.y / len2);
+	}
+
+	public Position rotate(double theta) {
+
+		double r = distTo(origin);
+		double alpha = toAngle();
+
+		double newX = r * Math.cos(theta + alpha);
+		double newY = r * Math.sin(theta + alpha);
+		return new Position(newX, newY);
 	}
 }
