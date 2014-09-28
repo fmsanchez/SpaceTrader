@@ -6,8 +6,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
       <group/>
     </open-files>
+    <editor-bookmarks lastBookmarkId="0" xmlns="http://www.netbeans.org/ns/editor-bookmarks/2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-      <group/>
+      <group>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/main/java/spacetrader/ui/Char.fxml</file>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/main/java/spacetrader/economy/EconomyManager.java</file>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/test/java/graph/GraphGrowerTest.java</file>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/main/java/spacetrader/economy/SimpleEconomyManager.java</file>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/main/java/spacetrader/ui/CharController.java</file>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/main/java/spacetrader/model/JumpPoint.java</file>
+        <file>file:/C:/Users/MainWin7/Documents/NetBeansProjects/SpaceTrader/src/main/java/spacetrader/demos/M4Demo.java</file>
+      </group>
     </open-files>
   </auxiliary>
 </gradle-project-properties>

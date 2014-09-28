@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
+import spacetrader.demos.M4Demo;
 
 /**
  *
@@ -30,8 +31,11 @@ public class MainWindow extends Pane{
       FXMLLoader loader2=new FXMLLoader((getClass().getResource("Char.fxml"))); 
       cc = loader2.load();
       ccc = (CharController) loader2.getController();
-
-       mmc.getStart().setOnAction((ActionEvent event) -> {
+      ccc.getDone().setOnAction((ActionEvent event)->{
+          if(ccc.saveToModel())
+            M4Demo.run();
+      });
+      mmc.getStart().setOnAction((ActionEvent event) -> {
             this.getChildren().remove(mm);
             this.getChildren().add(cc);
       });

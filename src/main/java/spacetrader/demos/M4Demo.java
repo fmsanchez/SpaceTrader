@@ -13,6 +13,7 @@ import java.awt.Graphics;
 import spacetrader.model.Faction;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.UniformRealDistribution;
+import spacetrader.generators.JumpGateGenerator;
 
 public class M4Demo extends JPanel{
 
@@ -20,15 +21,15 @@ public class M4Demo extends JPanel{
 	private static double BOUND_FACTOR = 2; 
 	private static double SYSTEM_NUM_MEAN = 100;
 	private static double SYSTEM_NUM_SD = 10;
-	private static double X_SD = 5;
-	private static double Y_SD = 2;
+	private static double X_SD = 10;
+	private static double Y_SD = 5;
 	private static double SCALE = 1;
 	private static int FRAME_SIZE = (int) (SCALE * FRAME_SIZE_FACTOR * BOUND_FACTOR * Math.max(X_SD, Y_SD));
-	private static int DOT_SIZE = 26;
+	private static int DOT_SIZE = 5;
 
 	private static Galaxy gax;
 
-	public static void main(String[] args) {
+	public static void run() {
 
 		// EllipticalGalaxy test
 		GalaxyGenerator gaxGen = new EllipticalGalaxyGenerator(
@@ -41,7 +42,8 @@ public class M4Demo extends JPanel{
 		);
 		gax = gaxGen.generate();
 		List<StarSystem> systems = gax.getSystems();
-                
+                JumpGateGenerator jg=new JumpGateGenerator((ArrayList<StarSystem>) systems);
+                jg.generate();
                 StarSystem t1=systems.get(0);
                 StarSystem t2=systems.get(1);
                 FactionSelector f1=new FactionSelector(new Faction.Test1Heurstic(),Faction.Test1);

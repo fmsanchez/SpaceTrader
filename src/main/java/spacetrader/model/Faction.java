@@ -16,7 +16,7 @@ public enum Faction {
 
         @Override
         public int calculate(StarSystem n1, StarSystem n2) {
-            return n1.getJumpPoint(n2).getLevel();
+            return 1;
         }
     }
 }

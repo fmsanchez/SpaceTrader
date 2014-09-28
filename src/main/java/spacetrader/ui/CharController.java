@@ -16,15 +16,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import spacetrader.model.Skillset;
+
 /**
  * FXML Controller class
  *
  * @author MainWin7
  */
 public class CharController implements Initializable {
+
     private int cpoints;
     private Skillset skill;
-    private int p,n,e,c;
+    private int p, n, e, c;
     @FXML
     Button pn;
     @FXML
@@ -55,115 +57,127 @@ public class CharController implements Initializable {
     @FXML
     Label nl;
 
-
     @FXML
     Button done;
 
     @FXML
     TextField name;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cpoints=5;
-        p=n=c=e=0;
-        points.setText(""+cpoints);
+        cpoints = 5;
+        p = n = c = e = 0;
+        points.setText("" + cpoints);
         pp.setOnAction((ActionEvent event) -> {
-            if(cpoints>0){
+            if (cpoints > 0) {
                 cpoints--;
                 p++;
             }
-            points.setText(""+cpoints);
-            pl.setText(""+p);
+            points.setText("" + cpoints);
+            pl.setText("" + p);
         });
         pn.setOnAction((ActionEvent event) -> {
-            if(p>0){
+            if (p > 0) {
                 cpoints++;
                 p--;
             }
-            points.setText(""+cpoints);
-            pl.setText(""+p);
+            points.setText("" + cpoints);
+            pl.setText("" + p);
 
         });
         np.setOnAction((ActionEvent event) -> {
-            if(cpoints>0){
+            if (cpoints > 0) {
                 cpoints--;
                 n++;
             }
-            points.setText(""+cpoints);            
-            nl.setText(""+n);
+            points.setText("" + cpoints);
+            nl.setText("" + n);
 
         });
         nn.setOnAction((ActionEvent event) -> {
-            if(n>0){
+            if (n > 0) {
                 cpoints++;
                 n--;
             }
-            points.setText(""+cpoints);
-            nl.setText(""+n);
+            points.setText("" + cpoints);
+            nl.setText("" + n);
 
         });
         ep.setOnAction((ActionEvent event) -> {
-            if(cpoints>0){
+            if (cpoints > 0) {
                 cpoints--;
                 e++;
             }
-            points.setText(""+cpoints);
-            el.setText(""+e);
+            points.setText("" + cpoints);
+            el.setText("" + e);
 
         });
         en.setOnAction((ActionEvent event) -> {
-            if(e>0){
+            if (e > 0) {
                 cpoints++;
                 e--;
             }
-            points.setText(""+cpoints);
-            el.setText(""+e);
+            points.setText("" + cpoints);
+            el.setText("" + e);
 
         });
         cp.setOnAction((ActionEvent event) -> {
-            if(cpoints>0){
+            if (cpoints > 0) {
                 cpoints--;
                 c++;
             }
-            points.setText(""+cpoints);
-            cl.setText(""+c);
+            points.setText("" + cpoints);
+            cl.setText("" + c);
         });
         cn.setOnAction((ActionEvent event) -> {
-            if(c>0){
+            if (c > 0) {
                 cpoints++;
                 c--;
             }
-            points.setText(""+cpoints);
-            cl.setText(""+c);
+            points.setText("" + cpoints);
+            cl.setText("" + c);
         });
         done.setOnAction((ActionEvent event) -> {
-            skill=new Skillset();
-            skill.setCharisma(c);
-            skill.setEngineering(e);
-            skill.setNavigation(n);
-            skill.setPiloting(p);
-            skill.setName(name.getText());
-            skill.save();
-            System.out.println("Engineering:"+skill.getEngineering());
-            System.out.println("Charisma:"+skill.getCharisma());
-            System.out.println("Navigation:"+skill.getNavigation());
-            System.out.println("Piloting:"+skill.getPiloting());
-            System.out.println("Name:"+skill.getName());
-            Platform.exit();
-        });    
-        cancel.setOnAction((ActionEvent ever)->{
+
+        });
+        cancel.setOnAction((ActionEvent ever) -> {
             Platform.exit();
         });
     }
-    public Button getDone(){
+
+    public Button getDone() {
         return done;
     }
-    public Button getCancel(){
+
+    public Button getCancel() {
         return cancel;
     }
-    public Skillset getSkillset(){
+
+    public Skillset getSkillset() {
         return skill;
+    }
+
+    public boolean saveToModel() {
+        skill = new Skillset();
+        skill.setCharisma(c);
+        skill.setEngineering(e);
+        skill.setNavigation(n);
+        skill.setPiloting(p);
+        if (!name.getText().equals("")) {
+            skill.setName(name.getText());
+            skill.save();
+            System.out.println("Engineering:" + skill.getEngineering());
+            System.out.println("Charisma:" + skill.getCharisma());
+            System.out.println("Navigation:" + skill.getNavigation());
+            System.out.println("Piloting:" + skill.getPiloting());
+            System.out.println("Name:" + skill.getName());
+            return true;
+        } else {
+            System.out.println("Missing name. Put this in label sometime.");
+        }
+        return false;
     }
 }

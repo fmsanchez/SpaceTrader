@@ -11,9 +11,9 @@ public class JumpPoint {
 
 	public JumpPoint(Position pos, StarSystem targetSys,
 					 Position targetPos) {
-		pos = this.pos;
-		targetSys = this.targetSys;
-		targetPos = this.targetPos;
+		this.pos=pos;
+		this.targetSys=targetSys;
+		this.targetPos=targetPos;
                 level=1;
 	}
 
