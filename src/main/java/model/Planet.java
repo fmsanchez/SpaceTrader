@@ -7,6 +7,7 @@ public class Planet {
 	private int techLevel;
 	private String government;
 	private String name;
+        private Market market;
 
 	public Planet(Position pos, System system, int techLevel, String government,
 		String name) {
