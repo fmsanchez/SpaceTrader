@@ -61,4 +61,83 @@ public class Util {
 		UniformRealDistribution distr = new UniformRealDistribution(lower, upper);
 		return distr.sample();
 	}
+
+	
+	/**
+	 * Sample ONCE from a normal distribution, so that the sample
+	 * is &gt;= lower
+	 * 
+	 * @param mean
+	 * @param sd must be positive
+	 * @param lower all samples will be greater than or equal to lower
+	 * @return a sample >= lower
+	 */
+	public static double sampleFromNormalAbove(
+		double mean, double sd, 
+		double lower) {
+
+		if (sd <= 0) {
+			throw new IllegalArgumentException("sd must be positive");
+		}
+
+		NormalDistribution distr = new NormalDistribution(mean, sd);
+		while (true) {
+			sample = distr.sample();
+			if (sample >= lower) {
+				return sample;
+			}
+		}
+	}
+
+	/**
+	 * Sample once from a normal distribution, so that the sample is &lt;= upper
+	 * 
+	 * @param mean
+	 * @param sd must be positive
+	 * @param upper all samples will be &lt;= upper
+	 * @return a sample &lt;= upper
+	 */
+	public static double sampleFromNormalBelow(
+		double mean, double sd, 
+		double upper) {
+
+		if (sd <= 0) {
+			throw new IllegalArgumentException("sd must be positive");
+		}
+
+		NormalDistribution distr = new NormalDistribution(mean, sd);
+		while (true) {
+			sample = distr.sample();
+			if (sample <= upper) {
+				return sample;
+			}
+		}
+	}
+
+	/**
+	 * Sample once from a normal distribution, so that the sample is &lt;= upper
+	 * and &gt;= lower.
+	 * 
+	 * @param mean
+	 * @param sd must be positive
+	 * @param lower all samples will be &gt;= lower
+	 * @param upper all samples will be &lt;= upper
+	 * @return a sample &lt;= upper and &gt;= lower
+	 */
+	public static double sampleFromNormalWithin(
+		double mean, double sd, 
+		double lower, double upper) {
+
+		if (sd <= 0) {
+			throw new IllegalArgumentException("sd must be positive");
+		}
+
+		NormalDistribution distr = new NormalDistribution(mean, sd);
+		while (true) {
+			sample = distr.sample();
+			if (sample <= upper && sample >= lower) {
+				return sample;
+			}
+		}
+	}
 }
