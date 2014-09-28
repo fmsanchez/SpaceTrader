@@ -1,3 +1,8 @@
+import model.Galaxy;
+import model.StarSystem;
+import generators.Util;
+import generators.EllipticalGalaxyGenerator;
+import generators.GalaxyGenerator;
 import javax.swing.*;
 import java.util.*;
 import java.awt.Graphics;
