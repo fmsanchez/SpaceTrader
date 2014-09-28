@@ -40,7 +40,6 @@ public class StarSystem implements Node{
 		this(name, pos, starType);
 		setMass(mass);
 		setFaction(faction);
-		this.faction=Faction.NoFaction;
 	}
 
 	public double getX() {
