@@ -2,15 +2,17 @@ package model;
 
 import java.util.List;
 import java.util.ArrayList;
-
-public class StarSystem {
+import graph.Node;
+import java.util.HashMap;
+import java.util.Objects;
+public class StarSystem implements Node{
 
 	private String name;
 	private Position pos;
 	private StarType starType;
 	private List<Planet> planets;
-	private List<JumpPoint> jumpPoints;
-
+	private HashMap<Node,JumpPoint> jumpPoints;
+        private Faction faction;
 	public Position getPosition() {
 		return pos;
 	}
@@ -19,8 +21,9 @@ public class StarSystem {
 		this.name = name;
 		this.pos = pos;
 		this.planets = new ArrayList<Planet>();
-		this.jumpPoints = new ArrayList<JumpPoint>();
+		this.jumpPoints = new HashMap<Node,JumpPoint>();
 		this.starType = starType;
+                this.faction=Faction.NoFaction;
 	}
 
 	public void addPlanet(Planet planet) {
@@ -28,18 +31,35 @@ public class StarSystem {
 	}
 
 	public void addJumpPoint(Position pos, StarSystem targetSys, Position targetPos) {
-		jumpPoints.add(new JumpPoint(pos, targetSys, targetPos));
-		targetSys.asymmetricalAddJumpPoint(new JumpPoint(targetPos, this, pos));
+		jumpPoints.put(targetSys,new JumpPoint(pos, targetSys, targetPos));
+		targetSys.asymmetricalAddJumpPoint(this,new JumpPoint(targetPos, this, pos));
 	}
 
-	private void asymmetricalAddJumpPoint(JumpPoint jumpPoint) {
-		jumpPoints.add(jumpPoint);
+	private void asymmetricalAddJumpPoint(StarSystem from,JumpPoint jumpPoint) {
+		jumpPoints.put(from,jumpPoint);
 	}
-       public ArrayList<StarSystem> getNeighbors(){
+        public ArrayList<StarSystem> getNeighbors(){
             ArrayList<StarSystem> out=new ArrayList();
-            jumpPoints.stream().forEach((j) -> {
-                out.add(j.getTargetSystem());
+            jumpPoints.forEach((k,v) -> {
+                out.add(v.getTargetSystem());
             });
             return out;
         }
+        public void setFaction(Faction f){
+            faction=f;
+        }
+        public Faction getFaction(){
+            return faction;
+        }
+        public JumpPoint getJumpPoint(StarSystem s){
+            return jumpPoints.get(s);
+        }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + Objects.hashCode(this.pos);
+        return hash;
+    }
+
 }

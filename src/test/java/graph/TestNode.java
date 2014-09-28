@@ -17,12 +17,9 @@ public class TestNode implements Node {
     private int testnum;
     private String name;
     public static class TestHeurstic extends Heurstic<TestNode>{
-        public TestHeurstic(){
-            this.reverse=true;
-        }
         @Override
-        public int calculate(TestNode n) {
-            return n.testnum;
+        public int calculate(TestNode n1, TestNode n2) {
+            return n1.testnum-n2.testnum;
         }
     }
     public TestNode(int n,String na){

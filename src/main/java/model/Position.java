@@ -69,4 +69,11 @@ public class Position {
 		double newY = r * Math.sin(theta + alpha);
 		return new Position(newX, newY);
 	}
+        @Override
+        public int hashCode() {
+            int hash = 7;
+            hash = 79 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
+            hash = 79 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
+            return hash;
+        }
 }

@@ -69,15 +69,11 @@ public class EllipticalGalaxyGenerator extends GalaxyGenerator {
 		NormalDistribution xDistr = new NormalDistribution(0, _xSD);
 		NormalDistribution yDistr = new NormalDistribution(0, _ySD);
 		Galaxy gax = new Galaxy();
-		
 		for (int i = 0; i < numSystems; i++) {
-
-
 			// randomly generate position
 			double x = xDistr.sample();
 			double y = yDistr.sample();
 			Position pos = new Position(x, y);
-
 			// if this position is too far away from the origin, then loop again
 			if (1 >
 				(Math.pow(_xBound, 2)*Math.pow(_yBound, 2))
@@ -85,7 +81,6 @@ public class EllipticalGalaxyGenerator extends GalaxyGenerator {
 				(Math.pow(y, 2)*Math.pow(_xBound, 2) + Math.pow(x, 2)*Math.pow(_yBound, 2))
 			) {
 				i--;			
-
 			// otherwise make the system in all its glory
 			} else {
 				pos = pos.rotate(_tiltRads);
@@ -95,7 +90,6 @@ public class EllipticalGalaxyGenerator extends GalaxyGenerator {
 				gax.addSystem(systemGen.generate());
 			}
 		}
-                
 		return gax;
 	}
 
