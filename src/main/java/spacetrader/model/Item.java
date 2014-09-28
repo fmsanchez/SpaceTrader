@@ -11,14 +11,14 @@ package spacetrader.model;
  */
 public class Item implements Tradeable {
     private final String name;
-    private final int basePrice;
+    private final double basePrice;
     
     /**
      * Constructor for Item
      * @param name
      * @param basePrice
      */
-    public Item(String name, int basePrice) {
+    public Item(String name, double basePrice) {
         this.name = name;
         this.basePrice = basePrice;
     }
@@ -26,7 +26,7 @@ public class Item implements Tradeable {
     public String getName() {
         return name;
     }
-    public int getBasePrice() {
+    public double getBasePrice() {
         return basePrice;
     }
 }

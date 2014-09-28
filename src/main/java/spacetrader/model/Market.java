@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author fsanchez
  */
-class Market {
+public class Market {
     private List<Item> items;
     private Planet planet;
     
