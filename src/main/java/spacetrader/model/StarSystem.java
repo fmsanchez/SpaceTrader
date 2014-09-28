@@ -16,6 +16,7 @@ public class StarSystem implements Node{
 	private double mass;
 	private Map<Node,JumpPoint> jumpPoints;
     private Faction faction;
+
 	public Position getPosition() {
 		return pos;
 	}
@@ -39,6 +40,15 @@ public class StarSystem implements Node{
 		this(name, pos, starType);
 		setMass(mass);
 		setFaction(faction);
+		this.faction=Faction.NoFaction;
+	}
+
+	public double getX() {
+		return pos.x;
+	}
+
+	public double getY() {
+		return pos.y;
 	}
 
 	public void addPlanet(Planet planet) {
@@ -53,29 +63,29 @@ public class StarSystem implements Node{
 	private void asymmetricalAddJumpPoint(StarSystem from,JumpPoint jumpPoint) {
 		jumpPoints.put(from,jumpPoint);
 	}
-        public ArrayList<StarSystem> getNeighbors(){
-            ArrayList<StarSystem> out=new ArrayList();
-            jumpPoints.forEach((k,v) -> {
-                out.add(v.getTargetSystem());
-            });
-            return out;
-        }
-        public void setFaction(Faction f){
-            faction=f;
-        }
-        public Faction getFaction(){
-            return faction;
-        }
-        public JumpPoint getJumpPoint(StarSystem s){
-            return jumpPoints.get(s);
-        }
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.pos);
-        return hash;
-    }
+	public ArrayList<StarSystem> getNeighbors(){
+		ArrayList<StarSystem> out=new ArrayList();
+		jumpPoints.forEach((k,v) -> {
+			out.add(v.getTargetSystem());
+		});
+		return out;
+	}
+	public void setFaction(Faction f){
+		faction=f;
+	}
+	public Faction getFaction(){
+		return faction;
+	}
+	public JumpPoint getJumpPoint(StarSystem s){
+		return jumpPoints.get(s);
+	}
+	@Override
+	public int hashCode() {
+		int hash = 3;
+		hash = 59 * hash + Objects.hashCode(this.name);
+		hash = 59 * hash + Objects.hashCode(this.pos);
+		return hash;
+	}
 
     public final void setMass(double mass) {
 
