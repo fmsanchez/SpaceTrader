@@ -1,4 +1,4 @@
-package spacetrader.generators;
+package spacetrader;
 
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.BinomialDistribution;
@@ -62,7 +62,7 @@ public class Util {
 		return distr.sample();
 	}
 
-	
+
 	/**
 	 * Sample ONCE from a normal distribution, so that the sample
 	 * is &gt;= lower
