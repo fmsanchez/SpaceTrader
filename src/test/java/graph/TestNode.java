@@ -5,8 +5,8 @@
  */
 package graph;
 
-import graph.Heurstic;
-import graph.Node;
+import spacetrader.graph.Heurstic;
+import spacetrader.graph.Node;
 import java.util.Objects;
 
 /**
