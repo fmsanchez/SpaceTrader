@@ -9,6 +9,24 @@ package spacetrader.model;
  *
  * @author Tyler Allen <tallen40@gatech.edu>
  */
-public class Item {
+public class Item implements Tradeable {
+    private final String name;
+    private final int basePrice;
     
+    /**
+     * Constructor for Item
+     * @param name
+     * @param basePrice
+     */
+    public Item(String name, int basePrice) {
+        this.name = name;
+        this.basePrice = basePrice;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    public int getBasePrice() {
+        return basePrice;
+    }
 }
