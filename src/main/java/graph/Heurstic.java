@@ -11,13 +11,10 @@ import java.util.Comparator;
  *
  * @author Tyler Allen <tallen40@gatech.edu>
  */
-abstract class Heurstic<N extends Node> implements Comparator<N>{
-    protected boolean reverse=false;
-    public abstract int calculate(N n);
+public abstract class Heurstic<N extends Node> implements Comparator<N>{
+    public abstract int calculate(N n1,N n2);
     @Override
     public int compare(N t, N t1) {
-        int q1=calculate(t);
-        int q2=calculate(t1);
-        return (reverse)?q2-q1:q1-q2;
+        return calculate(t,t1);
     }
 }
