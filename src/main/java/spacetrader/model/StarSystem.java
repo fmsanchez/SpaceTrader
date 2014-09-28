@@ -1,6 +1,7 @@
 package spacetrader.model;
 
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import spacetrader.graph.Node;
 import java.util.HashMap;
@@ -12,8 +13,9 @@ public class StarSystem implements Node{
 	private Position pos;
 	private StarType starType;
 	private List<Planet> planets;
-	private HashMap<Node,JumpPoint> jumpPoints;
-        private Faction faction;
+	private double mass;
+	private Map<Node,JumpPoint> jumpPoints;
+    private Faction faction;
 	public Position getPosition() {
 		return pos;
 	}
@@ -24,7 +26,19 @@ public class StarSystem implements Node{
 		this.planets = new ArrayList<Planet>();
 		this.jumpPoints = new HashMap<Node,JumpPoint>();
 		this.starType = starType;
-                this.faction=Faction.NoFaction;
+		this.faction = Faction.NoFaction;
+	}
+
+	public StarSystem(
+		String name, 
+		Position pos,
+		StarType starType,
+		double mass,
+		Faction faction) {
+
+		this(name, pos, starType);
+		setMass(mass);
+		setFaction(faction);
 	}
 
 	public void addPlanet(Planet planet) {
@@ -63,4 +77,10 @@ public class StarSystem implements Node{
         return hash;
     }
 
+    public final void setMass(double mass) {
+
+    	if (mass <= 0) {
+    		throw new IllegalArgumentException("")
+    	}
+    }
 }
