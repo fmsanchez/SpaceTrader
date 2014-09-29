@@ -1,5 +1,6 @@
 package spacetrader.generators;
 
+import spacetrader.Util;
 import spacetrader.model.Galaxy;
 import spacetrader.model.StarSystem;
 import java.util.List;

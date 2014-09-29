@@ -89,7 +89,7 @@ public class StarSystem implements Node{
     public final void setMass(double mass) {
 
     	if (mass <= 0) {
-    		throw new IllegalArgumentException("")
+            throw new IllegalArgumentException("");
     	}
     }
 }
