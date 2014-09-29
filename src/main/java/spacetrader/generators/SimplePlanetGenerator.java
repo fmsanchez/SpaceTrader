@@ -3,6 +3,7 @@ package spacetrader.generators;
 import spacetrader.model.Planet;
 import spacetrader.model.Position;
 import spacetrader.model.StarSystem;
+import spacetrader.Util;
 
 /**
  * @author Michael Lane

@@ -82,7 +82,7 @@ public class Util {
 
 		NormalDistribution distr = new NormalDistribution(mean, sd);
 		while (true) {
-			sample = distr.sample();
+			double sample = distr.sample();
 			if (sample >= lower) {
 				return sample;
 			}
@@ -107,7 +107,7 @@ public class Util {
 
 		NormalDistribution distr = new NormalDistribution(mean, sd);
 		while (true) {
-			sample = distr.sample();
+			double sample = distr.sample();
 			if (sample <= upper) {
 				return sample;
 			}
@@ -134,7 +134,7 @@ public class Util {
 
 		NormalDistribution distr = new NormalDistribution(mean, sd);
 		while (true) {
-			sample = distr.sample();
+			double sample = distr.sample();
 			if (sample <= upper && sample >= lower) {
 				return sample;
 			}

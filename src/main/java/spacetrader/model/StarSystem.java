@@ -13,7 +13,7 @@ public class StarSystem implements Node{
 	private Position pos;
 	private StarType starType;
 	private List<Planet> planets;
-	private double mass;
+	private double starMass;
 	private Map<Node,JumpPoint> jumpPoints;
     private Faction faction;
 
@@ -34,12 +34,12 @@ public class StarSystem implements Node{
 		String name, 
 		Position pos,
 		StarType starType,
-		double mass,
+		double starMass,
 		Faction faction) {
 
 		this(name, pos, starType);
-		setMass(mass);
-		setFaction(faction);
+		setStarMass(starMass);
+		this.faction = faction;
 	}
 
 	public double getX() {
@@ -70,6 +70,10 @@ public class StarSystem implements Node{
 		return out;
 	}
 	public void setFaction(Faction f){
+
+		if (f == null) {
+			throw new IllegalArgumentException("faction must be non-null");
+		}
 		faction=f;
 	}
 	public Faction getFaction(){
@@ -86,10 +90,15 @@ public class StarSystem implements Node{
 		return hash;
 	}
 
-    public final void setMass(double mass) {
+    public final void setStarMass(double starMass) {
 
-    	if (mass <= 0) {
-    		throw new IllegalArgumentException("")
+    	if (starMass <= 0) {
+    		throw new IllegalArgumentException("mass must be positive");
     	}
+    	this.starMass = starMass;
+    }
+
+    public double getStarMass() {
+    	return starMass;
     }
 }

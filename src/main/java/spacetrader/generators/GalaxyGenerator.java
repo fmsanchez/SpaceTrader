@@ -1,5 +1,6 @@
 package spacetrader.generators;
 
+import spacetrader.Util;
 import spacetrader.model.Galaxy;
 import org.apache.commons.math3.distribution.NormalDistribution;
 

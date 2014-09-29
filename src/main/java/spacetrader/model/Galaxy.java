@@ -17,11 +17,20 @@ public class Galaxy {
 	public void addSystem(StarSystem system) {
 		systems.put(system.getPosition(),system);
 	}
-        public Map<Position,StarSystem> getHashMap(){
-            return systems;
-        }
+
+	public void replaceSystems(List<StarSystem> systems) {
+
+		this.systems = new HashMap();
+		for (StarSystem system : systems) {
+			addSystem(system);
+		}
+	}
+
+    public Map<Position,StarSystem> getHashMap(){
+        return systems;
+    }
+
 	public List<StarSystem> getSystems() {
 		return new ArrayList<StarSystem>(systems.values());
 	}
-
 }

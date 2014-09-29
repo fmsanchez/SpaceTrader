@@ -7,6 +7,7 @@ public class JumpPoint {
 	private StarSystem targetSys;
 	private Position targetPos;
 	private Position pos;
+	public static final String term = "Hargin Point";
         private int level;
 
 	public JumpPoint(Position pos, StarSystem targetSys,
