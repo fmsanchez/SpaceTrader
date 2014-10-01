@@ -26,6 +26,8 @@ public class Item implements Tradeable {
     public String getName() {
         return name;
     }
+    
+    @Override
     public double getBasePrice() {
         return basePrice;
     }

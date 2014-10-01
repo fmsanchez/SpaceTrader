@@ -3,6 +3,7 @@ package spacetrader.model;
 import java.util.List;
 import java.util.ArrayList;
 import spacetrader.graph.Node;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -12,8 +13,9 @@ public class StarSystem implements Node{
 	private Position pos;
 	private StarType starType;
 	private List<Planet> planets;
-	private HashMap<Node,JumpPoint> jumpPoints;
+	private Map<Node,JumpPoint> jumpPoints;
         private Faction faction;
+
 	public Position getPosition() {
 		return pos;
 	}
@@ -35,7 +37,10 @@ public class StarSystem implements Node{
 		jumpPoints.put(targetSys,new JumpPoint(pos, targetSys, targetPos));
 		targetSys.asymmetricalAddJumpPoint(this,new JumpPoint(targetPos, this, pos));
 	}
-
+        
+        public List<Planet> getPlanets() {
+            return planets;
+        }
 	private void asymmetricalAddJumpPoint(StarSystem from,JumpPoint jumpPoint) {
 		jumpPoints.put(from,jumpPoint);
 	}

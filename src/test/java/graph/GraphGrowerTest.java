@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
  *
  * @author Tyler Allen <tallen40@gatech.edu>
  */
+
 public class GraphGrowerTest {
     GraphGrower<TestNode> graph;
     public GraphGrowerTest() {
@@ -50,8 +51,6 @@ public class GraphGrowerTest {
     // public void hello() {}
     @Test
     public void Test(){
-<<<<<<< HEAD
-        /*
         ArrayList<TestNode> test=new ArrayList();
         for(int i=0;i<100;i++){
             test.add(new TestNode(i,"Node:"+i));
@@ -61,18 +60,7 @@ public class GraphGrowerTest {
         for(int i=0;i<100;i++){
             c--;
             assertEquals("Graph outputs correct order",graph.popNext(),new TestNode(c,"Node:"+c));
-        }*/
-=======
-//        ArrayList<TestNode> test=new ArrayList();
-//        for(int i=0;i<100;i++){
-//            test.add(new TestNode(i,"Node:"+i));
-//        }
-//        graph.addNeighbor(test);
-//        int c=100;
-//        for(int i=0;i<100;i++){
-//            c--;
-//            assertEquals("Graph outputs correct order",graph.popNext(),new TestNode(c,"Node:"+c));
-//        }
->>>>>>> 4b1d05488149ce092256554bfdffe89589ca36c1
+        }
     }
+
 }
