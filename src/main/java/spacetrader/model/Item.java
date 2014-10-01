@@ -26,8 +26,11 @@ public class Item implements Tradeable {
     public String getName() {
         return name;
     }
+<<<<<<< HEAD
     
     @Override
+=======
+>>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35
     public double getBasePrice() {
         return basePrice;
     }

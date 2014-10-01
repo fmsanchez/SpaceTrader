@@ -4,12 +4,18 @@
  * and open the template in the editor.
  */
 package spacetrader.model;
+<<<<<<< HEAD
+=======
+import java.util.List;
+import java.util.ArrayList;
+>>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35
 
 /**
  *
  * @author fsanchez
  */
 public class Market {
+<<<<<<< HEAD
     private Inventory cargo;
     private final Planet planet;
     
@@ -38,5 +44,23 @@ public class Market {
 
     public void setCargo(Inventory cargo) {
         this.cargo = cargo;
+=======
+    private List<Item> items;
+    private Planet planet;
+    
+    public Market(List<Item> items, Planet planet) {
+        this.items = items;
+        this.planet = planet;
+    }
+    public Market(List<Item> items) {
+        this.items = items;
+    }
+    
+    public List<Item> getItems() {
+        return items;
+    }
+    public void setItems(List<Item> items) {
+        this.items = items;
+>>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35
     }
 }

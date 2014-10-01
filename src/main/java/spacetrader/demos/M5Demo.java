@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package spacetrader.demos;
+<<<<<<< HEAD
 import spacetrader.model.Galaxy;
 import spacetrader.model.StarSystem;
 import spacetrader.generators.Util;
@@ -149,4 +150,16 @@ public class M5Demo extends JPanel{
 
 
 	}
+=======
+
+/**
+ *
+ * @author fsanchez
+ */
+public class M5Demo {
+        
+    public static void main(String[] args) {
+        
+    }
+>>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35
 }

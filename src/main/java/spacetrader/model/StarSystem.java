@@ -1,9 +1,11 @@
 package spacetrader.model;
 
 import java.util.List;
+
 import java.util.ArrayList;
 import spacetrader.graph.Node;
 import java.util.Map;
+
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -13,8 +15,10 @@ public class StarSystem implements Node{
 	private Position pos;
 	private StarType starType;
 	private List<Planet> planets;
+	private double starMass;
 	private Map<Node,JumpPoint> jumpPoints;
-        private Faction faction;
+    private Faction faction;
+
 
 	public Position getPosition() {
 		return pos;
@@ -26,7 +30,27 @@ public class StarSystem implements Node{
 		this.planets = new ArrayList<Planet>();
 		this.jumpPoints = new HashMap<Node,JumpPoint>();
 		this.starType = starType;
-                this.faction=Faction.NoFaction;
+		this.faction = Faction.NoFaction;
+	}
+
+	public StarSystem(
+		String name, 
+		Position pos,
+		StarType starType,
+		double starMass,
+		Faction faction) {
+
+		this(name, pos, starType);
+		setStarMass(starMass);
+		this.faction = faction;
+	}
+
+	public double getX() {
+		return pos.x;
+	}
+
+	public double getY() {
+		return pos.y;
 	}
 
 	public void addPlanet(Planet planet) {
@@ -38,9 +62,9 @@ public class StarSystem implements Node{
 		targetSys.asymmetricalAddJumpPoint(this,new JumpPoint(targetPos, this, pos));
 	}
         
-        public List<Planet> getPlanets() {
-            return planets;
-        }
+    public List<Planet> getPlanets() {
+        return planets;
+    }
 	private void asymmetricalAddJumpPoint(StarSystem from,JumpPoint jumpPoint) {
 		jumpPoints.put(from,jumpPoint);
 	}
@@ -51,12 +75,7 @@ public class StarSystem implements Node{
             });
             return out;
         }
-        public void setFaction(Faction f){
-            faction=f;
-        }
-        public Faction getFaction(){
-            return faction;
-        }
+
         public JumpPoint getJumpPoint(StarSystem s){
             return jumpPoints.get(s);
         }
@@ -67,5 +86,24 @@ public class StarSystem implements Node{
         hash = 59 * hash + Objects.hashCode(this.pos);
         return hash;
     }
+	public void setFaction(Faction f){
 
+		if (f == null) {
+			throw new IllegalArgumentException("faction must be non-null");
+		}
+		faction=f;
+	}
+
+
+    public final void setStarMass(double starMass) {
+
+    	if (starMass <= 0) {
+    		throw new IllegalArgumentException("mass must be positive");
+    	}
+    	this.starMass = starMass;
+    }
+
+    public double getStarMass() {
+    	return starMass;
+    }
 }
