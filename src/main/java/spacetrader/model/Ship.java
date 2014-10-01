@@ -1,21 +1,33 @@
 package spacetrader.model;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Ship model!
  */
 public class Ship implements Tradeable {
-    private final double basePrice;
+    private double basePrice;
     private final String name;
-    private int firePower = 10;
-    private int cargoSize = 15;
-    private final List<Item> cargo;
+    private int firePower;
+    private final Inventory cargo;
     
-    public Ship(String name, double basePrice) {
+    public Ship(String name) {
         this.name = name;
+        basePrice = 1000;
+        firePower = 10;
+        cargo = new Inventory();
+    }
+    public Ship(String name, double basePrice, int firePower, int cargoSize) {
+        this.name = name;
+        this.firePower = firePower;
         this.basePrice = basePrice;
-        cargo = new ArrayList<>();
+        cargo = new Inventory(cargoSize);
+    }
+    
+    public boolean addItem(Item i) {
+        return cargo.add(i);
+    }
+    
+    public boolean removeItem(Item i) {
+        return cargo.remove(i);
     }
     
     @Override
@@ -23,19 +35,29 @@ public class Ship implements Tradeable {
         return basePrice;
     }
     
+    public String getName() {
+        return name;
+    }
+    
+    public Inventory getCargo() {
+        return cargo;
+    }
+    public int getFirePower() {
+        return firePower;
+    }
+
     public void setCargoSize(int size) {
-        cargoSize = size;
+        cargo.setMaxSize(size);
     }
     
     public void setFirePower(int power) {
         firePower = power;
     }
+    public void setBasePrice(double value) {
+        basePrice = value;
+    }
     
     public boolean addToCargo(Item i) {
-        if (cargo.size() < cargoSize) {
-            cargo.add(i);
-            return true;
-        }
-        return false;
+        return cargo.add(i);
     }
 }

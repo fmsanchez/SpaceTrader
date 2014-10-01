@@ -4,29 +4,39 @@
  * and open the template in the editor.
  */
 package spacetrader.model;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  *
  * @author fsanchez
  */
 public class Market {
-    private List<Item> items;
-    private Planet planet;
+    private Inventory cargo;
+    private final Planet planet;
     
-    public Market(List<Item> items, Planet planet) {
-        this.items = items;
+    public Market(Inventory cargo, Planet planet) {
+        this.cargo = cargo;
         this.planet = planet;
     }
-    public Market(List<Item> items) {
-        this.items = items;
+    
+    public boolean addItem(Item i) {
+        return cargo.add(i);
     }
     
-    public List<Item> getItems() {
-        return items;
+    public boolean removeItem(Item i) {
+        return cargo.remove(i);
     }
-    public void setItems(List<Item> items) {
-        this.items = items;
+    
+    public Inventory getItems() {
+        return cargo;
+    }
+    public Planet getPlanet() {
+        return planet;
+    }
+    public Inventory getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Inventory cargo) {
+        this.cargo = cargo;
     }
 }
