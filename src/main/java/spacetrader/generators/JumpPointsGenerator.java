@@ -2,7 +2,6 @@ package spacetrader.generators;
 
 import spacetrader.model.Galaxy;
 
-
 /**
  * @author Michael Lane <mlane@gatech.edu>
  */
