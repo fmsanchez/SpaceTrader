@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package spacetrader.demos;
-<<<<<<< HEAD
+
 import spacetrader.model.Galaxy;
 import spacetrader.model.StarSystem;
 import spacetrader.generators.Util;
@@ -18,6 +18,7 @@ import java.awt.Graphics;
 import spacetrader.model.Faction;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.UniformRealDistribution;
+
 
 public class M5Demo extends JPanel{
 
@@ -66,100 +67,4 @@ public class M5Demo extends JPanel{
                 
 	}
 
-	public void paintComponent(Graphics g) {
-
-		List<StarSystem> systems = gax.getSystems();
-		int shift = (int) (FRAME_SIZE/2.0 - DOT_SIZE/2.0);
-		for (StarSystem system : systems) {
-                        switch(system.getFaction()){
-                            case NoFaction: g.setColor(Color.BLACK); break;
-                            case Test1: g.setColor(Color.BLUE); break;
-                            case Test2: g.setColor(Color.RED); break;
-                        }
-			int x = (int) (system.getPosition().x*FRAME_SIZE_FACTOR/2.0) + shift;
-			int y = (int) (system.getPosition().y*FRAME_SIZE_FACTOR/2.0) + shift;
-			g.fillOval(x, y, DOT_SIZE, DOT_SIZE);
-		}
-
-		// // final int OVAL_W = 400;
-		// final int OVAL_H = 80;
-		// final int MAIN_DOT_DIAM = 20;
-		// final int INCIDENT_DOT_DIAM = 10;
-
-		// // draw oval
-		// g.drawOval(
-		// 	(int) ((FRAME_SIZE - OVAL_W)/2.0), 
-		// 	(int) ((FRAME_SIZE - OVAL_H)/2.0), 
-		// 	OVAL_W, OVAL_H
-		// );
-
-		// // sample main dot
-		// UniformRealDistribution distr = 
-		// 	new UniformRealDistribution(-FRAME_SIZE/2.0, FRAME_SIZE/2.0);
-		// double x = distr.sample();
-		// double y = distr.sample();
-
-		// // draw main dot
-		// g.fillOval(
-		// 	(int) (x + (FRAME_SIZE - MAIN_DOT_DIAM)/2.0),
-		// 	(int) (-y + (FRAME_SIZE - MAIN_DOT_DIAM)/2.0),
-		// 	MAIN_DOT_DIAM, MAIN_DOT_DIAM
-		// );
-		// // System.out.println("main dot = (" + x + ", " + y + ")");
-
-		// // calculate incident dot
-		// Position pos = new Position(x, y);
-		// double theta = pos.toAngle();
-		// // System.out.println("theta = " + theta);
-		// double incidentX = 
-		// 	((OVAL_H/2.0) * (OVAL_W/2.0) * x)
-		// 	/
-		// 	Math.sqrt(
-		// 		(Math.pow(y, 2)*Math.pow(OVAL_W/2.0, 2) + Math.pow(x, 2)*Math.pow(OVAL_H/2.0, 2))
-		// 	); 
-		// double incidentY = 
-		// 	((OVAL_H/2.0) * (OVAL_W/2.0) * y)
-		// 	/
-		// 	Math.sqrt(
-		// 		(Math.pow(y, 2)*Math.pow(OVAL_W/2.0, 2) + Math.pow(x, 2)*Math.pow(OVAL_H/2.0, 2))
-		// 	); 
-		// // System.out.println("incident dot = (" + incidentX + ", " + incidentY + ")");
-		// g.fillOval(
-		// 	(int) (incidentX + (FRAME_SIZE - INCIDENT_DOT_DIAM)/2.0),
-		// 	(int) (-incidentY + (FRAME_SIZE - INCIDENT_DOT_DIAM)/2.0),
-		// 	INCIDENT_DOT_DIAM, INCIDENT_DOT_DIAM
-		// );
-
-		// g.drawLine(
-		// 	(int) (FRAME_SIZE/2.0), (int) (FRAME_SIZE/2.0), 
-		// 	(int) (x + FRAME_SIZE/2.0), (int) (-y + FRAME_SIZE/2.0)
-		// );
-
-		// if (1 <= 
-		// 	(Math.pow(OVAL_W/2.0, 2)*Math.pow(OVAL_H/2.0, 2))
-		// 	/
-		// 	(Math.pow(y, 2)*Math.pow(OVAL_W/2.0, 2) + Math.pow(x, 2)*Math.pow(OVAL_H/2.0, 2))
-		// ) {
-		// 	System.out.println("inside oval");
-		// } else {
-		// 	System.out.println("outsie oval");
-		// }
-
-
-		// double y = OVAL_H * Math.sqrt(1 - Math.pow(x / (OVAL_W/2.0), 2)) / 2.0;
-
-
-	}
-=======
-
-/**
- *
- * @author fsanchez
- */
-public class M5Demo {
-        
-    public static void main(String[] args) {
-        
-    }
->>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35
 }

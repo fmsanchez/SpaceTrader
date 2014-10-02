@@ -41,6 +41,7 @@ public class Inventory {
     }
     public void setMaxSize(int size) {
         maxSize = size;
+
     }
     public void clearInventory() {
         items = new ArrayList<>();

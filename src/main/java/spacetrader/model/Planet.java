@@ -22,6 +22,10 @@ public class Planet {
         this.name=name;
         this.pos=pos;
     }
+    
+    public Market getMarket() {
+        return market;
+    }
 
 	public Position getPos() {
 		return pos;

@@ -2,11 +2,7 @@ package spacetrader.demos;
 
 import spacetrader.model.Galaxy;
 import spacetrader.model.StarSystem;
-<<<<<<< HEAD:src/main/java/spacetrader/demos/M4Demo.java
 import spacetrader.generators.Util;
-=======
-import spacetrader.Util;
->>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35:src/main/java/spacetrader/demos/M4Demo.java
 import spacetrader.generators.EllipticalGalaxyGenerator;
 import spacetrader.generators.GalaxyGenerator;
 import spacetrader.graph.FactionSelector;

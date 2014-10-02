@@ -1,9 +1,7 @@
 package spacetrader.generators;
 
-<<<<<<< HEAD:src/main/java/spacetrader/generators/SimpleStarSystemGenerator.java
-=======
+
 import spacetrader.Util;
->>>>>>> ab9749fac87c270cc8b945bb90495c54a7698e35:src/main/java/spacetrader/generators/SimpleStarSystemGenerator.java
 import spacetrader.model.Galaxy;
 import spacetrader.model.StarSystem;
 import java.util.List;
