@@ -40,7 +40,7 @@ public class Inventory {
         return (Item[]) items.toArray();
     }
     public void setMaxSize(int size) {
-        maxSize = size;
+        maxSize = size; 
     }
     public void clearInventory() {
         items = new ArrayList<>();
