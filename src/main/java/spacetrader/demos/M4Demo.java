@@ -2,7 +2,7 @@ package spacetrader.demos;
 
 import spacetrader.model.Galaxy;
 import spacetrader.model.StarSystem;
-import spacetrader.generators.Util;
+import spacetrader.Util;
 import spacetrader.generators.EllipticalGalaxyGenerator;
 import spacetrader.generators.GalaxyGenerator;
 import spacetrader.graph.FactionSelector;

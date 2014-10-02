@@ -1,6 +1,6 @@
 package spacetrader.generators;
 
-
+import spacetrader.Util;
 import spacetrader.model.Planet;
 import spacetrader.model.Position;
 import spacetrader.model.StarSystem;
